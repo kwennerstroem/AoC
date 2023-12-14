@@ -72,9 +72,8 @@ int Part2(string[] input)
         }
     }
 
-    for (int c = 0; c < 1000000000; c++)
+    for (int c = 0; c < 1000; c++)
     {
-        if (c % 100000 == 0) Console.WriteLine(".");
         for (int x = 0; x < input[0].Length; x++)
         {
             for (int y = 0; y < input.Length; y++)
@@ -116,7 +115,7 @@ int Part2(string[] input)
         {
             for (int x = 0; x < input[0].Length; x++)
             {
-                if (map[x, y] == 'O' && y != 0)
+                if (map[x, y] == 'O' && x != 0)
                 {
                     int i = x;
                     do
@@ -168,7 +167,7 @@ int Part2(string[] input)
 
                     if (map[x, i] == 'O')
                     {
-                        if (y - i == 1) continue;
+                        if (i - y == 1) continue;
                         map[x, y] = '.';
                         map[x, i - 1] = 'O';
                     }
@@ -190,7 +189,7 @@ int Part2(string[] input)
         {
             for (int x = input[0].Length - 1; x >= 0; x--)
             {
-                if (map[x, y] == 'O' && y != input[0].Length - 1)
+                if (map[x, y] == 'O' && x != input[0].Length - 1)
                 {
                     int i = x;
                     do
@@ -205,7 +204,7 @@ int Part2(string[] input)
 
                     if (map[i, y] == 'O')
                     {
-                        if (x - i == 1) continue;
+                        if (i - x == 1) continue;
                         map[x, y] = '.';
                         map[i - 1, y] = 'O';
                     }
